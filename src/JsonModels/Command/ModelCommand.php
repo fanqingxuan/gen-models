@@ -19,7 +19,7 @@ class ModelCommand extends Command
  * @name {{Model}}
  * @desc {{Model}}类, 主要用来访问数据库
  * @author {{Author}}
- * @see http://github.com/fanqingxuan/gen-model
+ * @see http://github.com/fanqingxuan/gen-models
  */
 class {{Model}} extends Base {
 
