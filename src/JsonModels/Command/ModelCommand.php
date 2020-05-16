@@ -140,10 +140,10 @@ EOF;
             if($input->getOption("force") || !file_exists($model_path.'/'.$model.'.php')) {
                 $charNum = file_put_contents($model_path.'/'.$model.'.php',$content);
                 if($charNum) {
-                    $io->writeln("Model class ".$model."Model generate successful in file $model.php");
+                    $io->writeln("Model class ".$model." generate successful in file $model.php");
                     $successCount++;
                 } else {
-                    $io->writeln("Model class ".$model."Model generate failed in file $model.php");
+                    $io->writeln("Model class ".$model." generate failed in file $model.php");
                 }
             }
             $progressBar->advance();
