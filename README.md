@@ -2,7 +2,7 @@
 
 ### background
 
-这个项目的目的是自动生成model类。一般的开源框架都有自己的orm，比如laravel，yii等，并且他们都有自己的命令行，所以不需要自己生成。但是也有一些高性能框架没有封装db层，比如yaf，phpslim，这个时候需要我们手动需创建model，或者dao去操作数据库。
+这个项目的目的是自动生成model类。一般的开源框架都有自己的orm，比如laravel，yii等，并且他们都有自己的命令行，所以不需要自己生成。但是也有一些高性能框架没有封装db层，比如yaf，phpslim，这个时候需要我们手动创建model，或者dao去操作数据库。
 
 我们一般创建一个model基类，封装基本的增删改查方法，然后实体model去继承基类，像下面这样
 
@@ -69,42 +69,22 @@ class User {
 composer require fanqingxuan/gen-models
 ```
 
-- 配置入口文件
-
-创建入口文件，或者将vender/fanqingxuan/gen-models目录下的index.php直接copy下来
-
-```php
-require 'vendor/autoload.php';
-
-use Symfony\Component\Console\Application;
-use JsonModels\Command\ModelCommand;
-$application = new Application();
-
-$name = "A tool for generate models written by Json<fanqingxuan@163.com>";
-$application->setName($name);
-
-$application->add(new ModelCommand());
-
-$application->run();
-
-```
-
 - 使用
 
 ```shell
-$php index.php model database path //将连接的数据库中的所有表，一个表一个模型生成到对应目录,默认host是localhost,db user是root,password是root，port是3306
+$vendor/bin/gen-models model database path //将连接的数据库中的所有表，一个表一个模型生成到对应目录,默认host是localhost,db user是root,password是root，port是3306
 
-$php index.php model -h //查看命令帮助
+$vendor/bin/gen-models model -h //查看命令帮助
 
-$php index.php model database path -uroot123 //连接的时候db user使用root123
+$vendor/bin/gen-models model database path -uroot123 //连接的时候db user使用root123
 
-$php index.php model database path -uroot123 -pa12345 -H192.168.56.55 -P3308 //连接host是192.168.56.55,user是root123 pasword是a12345,端口是3308的库
+$vendor/bin/gen-models model database path -uroot123 -pa12345 -H192.168.56.55 -P3308 //连接host是192.168.56.55,user是root123 pasword是a12345,端口是3308的库
 
-$php index.php model database path --ignore-prefix  tbl_  //创建的model类名忽略表前缀
+$vendor/bin/gen-models model database path --ignore-prefix  tbl_  //创建的model类名忽略表前缀
 
-$php index.php model database path -f //若path中model文件已经存在，进行覆盖，不存在则创建
+$vendor/bin/gen-models model database path -f //若path中model文件已经存在，进行覆盖，不存在则创建
 
-$php index.php model database path --suffix //为model类文件添加Dao或者Model后缀
+$vendor/bin/gen-models model database path --suffix //为model类文件添加Dao或者Model后缀
 
 ```
 

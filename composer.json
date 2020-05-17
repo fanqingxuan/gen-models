@@ -10,13 +10,14 @@
         "php": ">=7.0",
         "symfony/console": "^5.0"
       },
+     "bin": ["bin/gen-models"],
      "autoload": {
         "psr-4": {
           "JsonModels\\": "src/JsonModels"
         }
       },
-      "license": "MIT",
-      "minimum-stability": "dev",
+     "license": "MIT",
+     "minimum-stability": "dev",
     "repositories": {
         "packagist": {
             "type": "composer",
